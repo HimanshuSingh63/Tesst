@@ -1,0 +1,22 @@
+<template>
+    <div class="slds-grid ">
+        <div class="slds-col slds-align-middle">
+            <template if:true={isSyncing}>
+                <div class="slds-text-align_center slds-m-around_small">
+                    <p>Sync in progress</p>
+                    <lightning-spinner alternative-text="Loading..." size="small"></lightning-spinner>
+                </div>
+            </template>
+            <template if:false={isSyncing}>
+                <p class="slds-text-align_center">{syncStatus}</p>
+            </template>
+        </div>
+        <div class="slds-col slds-align-bottom slds-p-around_medium">
+            <lightning-button onclick={handleSync} label="Sync" variant="brand" disabled={isSyncing}></lightning-button>
+        </div>
+    </div>
+    <lightning-card title="User Info and Form Factor">
+        <p class="slds-p-horizontal_medium">User ID: {userId}</p>
+        
+    </lightning-card>
+</template>
